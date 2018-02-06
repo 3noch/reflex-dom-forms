@@ -20,7 +20,7 @@ import           Text.Read           (readMaybe)
 requiredText
   :: Text -- ^ Error message if value is empty
   -> Text -- ^ Field value to check
-  -> Either Text Text -- 'Left' has the error message; 'Right' has the input value with white space stripped.
+  -> Either Text Text -- ^ 'Left' has the error message; 'Right' has the input value with white space stripped.
 requiredText msg x = if T.null cleaned then Left msg else Right cleaned
   where cleaned = T.strip x
 
@@ -38,9 +38,9 @@ emailText x = maybe
 -- | Parses a number with some optional range.
 numeric
   :: (Ord a, Read a, Show a)
-  => Text -- Unit
-  -> (Maybe a, Maybe a)  -- Optional low / high limit
-  -> Text -- Input value
+  => Text -- ^ Unit
+  -> (Maybe a, Maybe a)  -- ^ Optional low / high limit
+  -> Text -- ^ Input value
   -> Either Text a
 numeric unit (low', high') x = case readMaybe (T.unpack x) of
   Nothing -> Left msg

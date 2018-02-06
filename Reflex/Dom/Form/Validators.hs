@@ -62,9 +62,9 @@ optional = optionalWith Nothing Just
 
 -- | Converts a validator into one that permits empty values.
 optionalWith
-  :: b -- Default when value is empty
-  -> (a -> b) -- Function to convert non-empty value to result type
-  -> Validator t m a  -- Input validator
+  :: b -- ^ Default when value is empty
+  -> (a -> b) -- ^ Function to convert non-empty value to result type
+  -> Validator t m a  -- ^ Input validator
   -> Validator t m b
 optionalWith empty notEmpty (Validator check mods) = Validator
   (\txt -> let

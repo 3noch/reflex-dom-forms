@@ -45,6 +45,7 @@ instance (Applicative m, Reflex t) => Default (TextField t m) where def = TextFi
   _textField_setValue   = never
   }
 
+-- | Builds an @input@ element based on a 'TextField' configuration.
 mkField :: (DomBuilderSpace m ~ GhcjsDomSpace, DomBuilder t m, PostBuild t m) => TextField t m -> m (Dynamic t Text)
 mkField cfg = do
   cfg^. textField_outsidePre
